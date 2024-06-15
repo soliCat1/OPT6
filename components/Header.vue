@@ -1,19 +1,19 @@
 <template>
   <header class="header">
     <nav class="header__wrapper">
-      <a class="header__logo" href="/">
+      <NuxtLink class="header__logo" to="/">
         <Svg :name="'logo'"></Svg>
         <span class="visually-hidden">Ссылка на стартовую страницу</span>
-      </a>
+      </NuxtLink>
       <button class="header__button" @click="openMenu" type="button">
       </button>
       <div class="header__container">
         <ul class="header__list">
           <li>
-            <a href="/tariffs">Тарифы</a>
+            <NuxtLink to="/tariffs">Тарифы</NuxtLink>
           </li>
           <li>
-            <a href="/contacts">Контакты</a>
+            <NuxtLink to="/contacts">Контакты</NuxtLink>
           </li>
         </ul>
         <ul class="header__list">
@@ -21,11 +21,11 @@
             <a class="header__number" href="tel:+74951184422">+7 495 118-44-22</a>
           </li>
           <li>
-            <a href="/enter">Вход</a>
+            <NuxtLink to="/enter">Вход</NuxtLink>
           </li>
           <li>
             <Button type="button" class="registration">
-              <a href="/registration">Регистрация</a>
+              <NuxtLink class="button" to="/registration">Регистрация</NuxtLink>
             </Button>
           </li>
         </ul>
@@ -115,15 +115,15 @@ a {
   color: #ffffff;
   font-size: 18px;
   transition: color 0.2s ease;
+}
 
-  &:hover {
-    color: #0372da;
-  }
+a:not(.button):hover {
+  color: #0372da;
 }
 
 .header__number {
   font-weight: 700;
-  
+
   @media (max-width: 768px) {
     font-weight: 400;
   }
@@ -157,6 +157,7 @@ a {
     }
   }
 }
+
 .header__button::before,
 .header__button::after {
   content: '';
@@ -183,7 +184,7 @@ a {
 }
 
 .header__button--active::before {
-  transform:  translate(6px, -8px) rotate(45deg);
+  transform: translate(6px, -8px) rotate(45deg);
   border-radius: 3px;
 }
 
@@ -192,7 +193,7 @@ a {
   border-radius: 3px;
 }
 
-.header__button--active + .header__container {
+.header__button--active+.header__container {
   transform: translate3d(0, 0, 0);
 }
 
